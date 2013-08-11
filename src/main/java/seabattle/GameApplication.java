@@ -21,8 +21,8 @@ public class GameApplication extends WebApplication {
     protected void init() {
         super.init();
 
-        mountPage("/username", ConnectToGamePage.class);
-        mountPage("/chat", GamePage.class);
+        mountPage("/connect", ConnectToGamePage.class);
+        mountPage("/game", GamePage.class);
     }
 
     @Override
