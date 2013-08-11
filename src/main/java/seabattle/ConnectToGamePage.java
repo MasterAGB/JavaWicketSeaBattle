@@ -1,4 +1,4 @@
-package test005;
+package seabattle;
 
 
 import org.apache.wicket.RestartResponseAtInterceptPageException;

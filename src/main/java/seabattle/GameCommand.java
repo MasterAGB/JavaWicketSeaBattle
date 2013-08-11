@@ -1,4 +1,4 @@
-package test005;
+package seabattle;
 
 import java.io.Serializable;
 
@@ -25,11 +25,16 @@ public class GameCommand implements Serializable {
         this.command = command;
     }
 
-    public String getFrom() {
+
+    //eti metodi vizivajem iz  populateItem  - new PropertyModel<String>(message, "player"));
+    //avtomatom budet vizivatj getPlayer
+    public String getPlayer() {
+        System.out.println("PropertyModel getPlayer method: player "+player);
         return player;
     }
 
     public String getCommand() {
+        System.out.println("PropertyModel getCommand method: command: "+command);
         return command;
     }
 

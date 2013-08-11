@@ -1,4 +1,4 @@
-package test005;
+package seabattle;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,13 +65,12 @@ public class GamePage extends WebPage {
             @Override
             public void onSubmit() {
                 super.onSubmit();
-
+                 //uhodim iz igri
                 GameSession.get().setUsername(null);
             }
         };
 
-        form.add(textField);
-        form.add(button);
+
 
 
         Component submit = new AjaxSubmitLink("submit") {
@@ -102,7 +101,7 @@ public class GamePage extends WebPage {
             }
         };
 
-        form.add(textField, submit);
+        form.add(textField, submit, button);
 
         return form;
     }
@@ -126,10 +125,12 @@ public class GamePage extends WebPage {
 
                 GameCommand message = item.getModelObject();
 
-                Label from = new Label("from", new PropertyModel<String>(message, "from"));
+                //budet vizivatj getPlayer metod
+                Label from = new Label("playerLabel", new PropertyModel<String>(message, "player"));
                 item.add(from);
 
-                Label text = new Label("text", new PropertyModel<String>(message, "text"));
+                //budet vizivatj getCommand method
+                Label text = new Label("commandLabel", new PropertyModel<String>(message, "command"));
                 item.add(text);
             }
         };
