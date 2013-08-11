@@ -1,4 +1,4 @@
-package seabattle;
+package seabattleWicketPackage;
 
 import java.io.Serializable;
 

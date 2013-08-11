@@ -1,4 +1,4 @@
-package seabattle;
+package seabattleWicketPackage;
 
 /**
  * Created with IntelliJ IDEA.
