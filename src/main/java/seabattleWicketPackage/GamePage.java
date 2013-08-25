@@ -12,6 +12,7 @@ import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.RestartResponseAtInterceptPageException;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
@@ -24,6 +25,10 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.time.Duration;
+import seabattleGame.FooterBottom;
+import seabattleGame.GameLogic;
+import seabattleGame.GameMap;
+import seabattleGame.GameMapComponent;
 
 import java.util.LinkedList;
 
@@ -35,10 +40,22 @@ public class GamePage extends WebPage {
     private static final int MAX_MESSAGES = 50;
     static private final LinkedList<GameCommand> messages = new LinkedList<GameCommand>();
 
+
+
     private MarkupContainer messagesContainer;
+    private GameMapComponent gameMapLabel;
+    private GameLogic gameLogic;
+
+
 
     public GamePage() {
-        add(buildUsernameLabel(), buildMessagesContainer(), buildForm());
+        gameLogic=new GameLogic();
+
+        add(buildUsernameLabel(), buildMessagesContainer(), initGameMap(), buildForm(), footer());
+    }
+
+    private Component footer() {
+        return new FooterBottom("footer");
     }
 
     @Override
@@ -93,11 +110,12 @@ public class GamePage extends WebPage {
 
                 textField.setModelObject("");
                 target.add(messagesContainer, textField);
+                target.add(gameMapLabel);
             }
 
             @Override
-            protected void onError(AjaxRequestTarget target, Form<?> form) {
-                throw new UnsupportedOperationException("nor errors allowed :)");
+            protected void onError(AjaxRequestTarget ajaxRequestTarget, Form<?> components) {
+                //To change body of implemented methods use File | Settings | File Templates.
             }
         };
 
@@ -141,6 +159,19 @@ public class GamePage extends WebPage {
         AjaxSelfUpdatingTimerBehavior ajaxBehavior = new AjaxSelfUpdatingTimerBehavior(Duration.seconds(5));
         messagesContainer.add(ajaxBehavior);
 
+
+
+
+
         return messagesContainer;
+    }
+    private Component initGameMap() {
+
+
+        gameMapLabel = new GameMapComponent("gameMap");
+
+
+
+        return gameMapLabel;
     }
 }

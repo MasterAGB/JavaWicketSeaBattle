@@ -18,14 +18,16 @@
     form {
         margin-bottom: 10px;
     }
+
     --></style>
 </head>
 <body>
 <p>Console for player: <span wicket:id="username"></span></p>
+
 <form wicket:id="form" class="form">
     <input type="text" wicket:id="message">
-    <input type="submit" value="Send command"  wicket:id="submit">
-    <input type="submit" value="Leave"  wicket:id="leave">
+    <input type="submit" value="Send command" wicket:id="submit">
+    <input type="submit" value="Leave" wicket:id="leave">
 </form>
 <div wicket:id="messages">
     <p wicket:id="message" class="message">
@@ -33,5 +35,12 @@
             </span><span wicket:id="commandLabel"></span>
     </p>
 </div>
+
+<div wicket:id="gameMap"></div>
+
+
+
+<div wicket:id="footer" class="footer"></div>
+
 </body>
 </html>
