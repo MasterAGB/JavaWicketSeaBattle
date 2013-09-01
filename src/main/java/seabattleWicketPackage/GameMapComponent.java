@@ -1,25 +1,19 @@
-package seabattleGame;
+package seabattleWicketPackage;
 
-import org.apache.wicket.Component;
-import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
-import org.apache.wicket.markup.html.WebComponent;
-import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.time.Duration;
-import seabattleWicketPackage.GameCommand;
-import seabattleWicketPackage.GameSession;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.LinkedList;
 
 
 public class GameMapComponent extends Panel {
@@ -29,24 +23,26 @@ public class GameMapComponent extends Panel {
     public GameMapComponent(String id) {
         super(id);
 
-        List<String> data = new ArrayList<String>();
-        data.add("first row");
-        data.add("second row");
-        data.add(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
-        data.add("third row");
-        data.add(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+
+        LinkedList<GameCellRenderer> gameCellRenderers = GamePage.gameMap.getMapCells();
 
 
-        final ListView listView = new ListView("gameMapRow", data) {
+        final ListView<GameCellRenderer> listView = new ListView<GameCellRenderer>("gameMapRow", gameCellRenderers) {
+
             private static final long serialVersionUID = 1L;
 
             @Override
-            protected void populateItem(ListItem item) {
+            protected void populateItem(ListItem<GameCellRenderer> item) {
                 this.modelChanging();
+                System.out.println("Populate cells");
+                GameCellRenderer cell = item.getModelObject();
+                Label from = new Label("gameMapCell", new PropertyModel<String>(cell, "cell"));
+                item.add(from.setEscapeModelStrings(false));
 
-                item.add(new Label("gameMapCell", item.getModel()));
 
             }
+
+
         };
 
         this.setOutputMarkupId(true);
@@ -80,7 +76,7 @@ public class GameMapComponent extends Panel {
             }
             map.append("|\n");
         }
-        map.append(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+        map.append(new SimpleDateFormat("HH:mm:ss").format(new Date()));
 
         return map.toString();
     }

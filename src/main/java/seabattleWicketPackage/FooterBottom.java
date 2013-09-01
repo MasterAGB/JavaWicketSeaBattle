@@ -1,4 +1,4 @@
-package seabattleGame;
+package seabattleWicketPackage;
 
 import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;

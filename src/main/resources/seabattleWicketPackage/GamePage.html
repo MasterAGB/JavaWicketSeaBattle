@@ -3,30 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
       lang="en" xml:lang="en">
-<head>
-    <style><!--
-    span.from {
-        font-weight: bold;
-        margin-right: 10px;
-    }
+<wicket:head>
 
-    p.message {
-        margin: 0;
-        margin-bottom: 0.2em;
-    }
 
-    form {
-        margin-bottom: 10px;
-    }
-
-    --></style>
-</head>
+    </wicket:head>
 <body>
+
+<div id="console">
 <p>Console for player: <span wicket:id="username"></span></p>
+<p>Gold: <span wicket:id="gold"></span></p>
+<p>Income: <span wicket:id="income"></span>/sec</p>
+</div>
+
 
 <form wicket:id="form" class="form">
-    <input type="text" wicket:id="message">
-    <input type="submit" value="Send command" wicket:id="submit">
+    X:<input type="text" wicket:id="x" id="fieldX" value="3">
+    Y:<input type="text" wicket:id="y" id="fieldY" value="4">
+    Message:<input  id="fieldCommand" type="text" wicket:id="message">
+
+
+    <input type="submit" id="fieldSubmit" value="Send command" wicket:id="submit">
     <input type="submit" value="Leave" wicket:id="leave">
 </form>
 <div wicket:id="messages">

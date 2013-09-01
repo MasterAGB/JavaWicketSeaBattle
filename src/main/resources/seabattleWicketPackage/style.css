@@ -1,0 +1,147 @@
+span.from {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+p.message {
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+
+@keyframes myfirst
+{
+    from {
+        background:
+            url(http://i.imgur.com/FP2ERwN.png) no-repeat 100% 100%,
+            url(http://i.imgur.com/1t4S3fQ.png) no-repeat 0% 100%,
+            url(http://i.imgur.com/UJQr1DP.png) no-repeat 100% 0%,
+            url(http://i.imgur.com/NEdNB8T.png) no-repeat 0% 0%,
+            url(http://i.imgur.com/lJJzUJ5.png) 0px -2px,
+            url(http://i.imgur.com/1cZnDB6.png) 0px -5px;
+    }
+    to {
+        background:
+            url(http://i.imgur.com/FP2ERwN.png) no-repeat 100% 100%,
+            url(http://i.imgur.com/1t4S3fQ.png) no-repeat 0% 100%,
+            url(http://i.imgur.com/UJQr1DP.png) no-repeat 100% 0%,
+            url(http://i.imgur.com/NEdNB8T.png) no-repeat 0% 0%,
+            url(http://i.imgur.com/lJJzUJ5.png) 2px -6px,
+            url(http://i.imgur.com/1cZnDB6.png) 0px -15px;
+    }
+}
+
+
+.gameMapRowParent {
+
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background:
+        url(http://i.imgur.com/FP2ERwN.png) no-repeat 100% 100%,
+        url(http://i.imgur.com/1t4S3fQ.png) no-repeat 0% 100%,
+        url(http://i.imgur.com/UJQr1DP.png) no-repeat 100% 0%,
+        url(http://i.imgur.com/NEdNB8T.png) no-repeat 0% 0%,
+        url(http://i.imgur.com/lJJzUJ5.png) 0px -2px,
+        url(http://i.imgur.com/1cZnDB6.png) 0px -5px;
+    height: 800px;
+    width: 1600px;
+    animation: myfirst 1s;
+    -webkit-animation: myfirst 1s; /* Safari and Chrome */
+}
+
+#console {
+    z-index:2;
+    position:absolute;
+    color:#FFF;
+}
+
+.gameMapRow {
+}
+.realCell {
+    width:200px;
+    height:100px;
+    font-size:10px;
+    position:absolute;
+    background: url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+    text-align: center;
+    padding-top:20px;
+    color:#FFF;
+    opacity:1;
+}
+.realCell:hover {
+    opacity:0.5;
+}
+
+.realCell.has_island{
+    background: url(http://i.imgur.com/9D1W2us.png) no-repeat 59px 13px, url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+}
+.realCell.has_ship{
+    background: url(http://i.imgur.com/DIkcLi1.png) no-repeat 67px 13px, url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+}
+.realCell.has_enemy_ship{
+    background: url(http://i.imgur.com/4CaBQcB.png) no-repeat 43px -32px, url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+}
+.realCell.has_wreck{
+    background: url(http://i.imgur.com/2dAHpeH.png) no-repeat 59px 27px, url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+}
+.realCell.has_barrel{
+    background: url(http://i.imgur.com/pHgnxSh.png) no-repeat 59px 27px, url(http://g1.af.madsword.com/game/images/ld/tiles/Water1.png) no-repeat -100px -110px;
+}
+
+
+.level1, .level2, .level3 {
+    background:url('http://www.themega.ru/images/star_icon.png');
+    width: 32px;/* width of the image */;
+    height: 32px;/* height of the image */;
+    display:block;
+    position:absolute;
+    z-index:2;
+    left: 50%;
+    margin-left: -16px;
+    width: 32px;
+    top: -55px;
+    -webkit-transform: scale(0.6,0.6);
+}
+.level2 {
+    width:64px;
+    margin-left:-32px;
+}
+.level3 {
+    width:96px;
+    margin-left:-48px;
+}
+
+
+.lives1, .lives2, .lives3 {
+background:url('http://cdn1.iconfinder.com/data/icons/customicondesignvalentine/32/heart.png');
+    width: 32px;/* width of the image */;
+    height: 32px;/* height of the image */;
+    display:block;
+    position:absolute;
+    z-index:2;
+    left: 50%;
+    margin-left: -16px;
+    width: 32px;
+    top:-20px;
+    -webkit-transform: scale(0.6,0.6);
+}
+.lives2 {
+    width:64px;
+    margin-left:-32px;
+}
+.lives3 {
+    width:96px;
+    margin-left:-48px;
+}
+
+
+
+
+
+
